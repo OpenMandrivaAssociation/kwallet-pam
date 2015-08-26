@@ -1,9 +1,0 @@
-diff -Naur kwallet-pam-5.4.0/CMakeLists.txt kwallet-pam-5.4.0.tpg/CMakeLists.txt
---- kwallet-pam-5.4.0/CMakeLists.txt	2015-08-20 14:37:25.000000000 +0000
-+++ kwallet-pam-5.4.0.tpg/CMakeLists.txt	2015-08-26 18:14:07.139250325 +0000
-@@ -35,4 +35,4 @@
-    ${LIBGCRYPT_LIBRARIES}
- )
- 
--install(TARGETS ${library_name} DESTINATION /${CMAKE_INSTALL_LIBDIR}/security)
-+install(TARGETS ${library_name} DESTDIR /${CMAKE_INSTALL_LIBDIR}/security)

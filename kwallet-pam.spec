@@ -9,18 +9,22 @@ Summary: PAM support for Kwallet
 URL: http://kde.org/
 License: GPL
 Group: System/Libraries
-Patch0: kwallet-pam-5.4.0-fix-install.patch
 BuildRequires: cmake(ECM)
 BuildRequires: pam-devel
 BuildRequires: pkgconfig(libgcrypt)
 
 %description
 PAM support for Kwallet.
+To enable it add these lines to /etc/pam.d/kde:
+
+---------------------
+-auth            optional        pam_kwallet5.so	kdehome=.kde4
+-session         optional        pam_kwallet5.so
+---------------------
 
 %prep
 %setup -q
-%apply_patches
-%cmake_kde5 -DKWALLET5=1
+%cmake_kde5 -DKWALLET5=1 -DCMAKE_INSTALL_LIBDIR=%{_lib}
 
 %build
 %ninja -C build
@@ -29,3 +33,4 @@ PAM support for Kwallet.
 %ninja_install -C build
 
 %files
+/%{_lib}/security/pam_kwallet5.so

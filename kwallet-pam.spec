@@ -18,7 +18,7 @@ PAM support for Kwallet.
 
 %prep
 %setup -q
-%cmake_kde5
+%cmake_kde5 -DKWALLET5=1
 
 %build
 %ninja -C build

@@ -2,7 +2,7 @@
 %define stable %([ "`echo %{version} |cut -d. -f3`" -ge 80 ] && echo -n un; echo -n stable)
 
 Name: kwallet-pam
-Version: 5.4.3
+Version: 5.5.0
 Release: 1
 Source0: http://download.kde.org/%{stable}/plasma/%{plasmaver}/%{name}-%{version}.tar.xz
 Summary: PAM support for Kwallet
@@ -24,7 +24,7 @@ To enable it add these lines to /etc/pam.d/kde:
 
 %prep
 %setup -q
-%cmake_kde5 -DKWALLET5=1 -DCMAKE_INSTALL_LIBDIR=%{_lib}
+%cmake_kde5 -DKWALLET5=1 -DCMAKE_INSTALL_LIBDIR=/%{_lib}
 
 %build
 %ninja -C build

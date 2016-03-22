@@ -12,6 +12,8 @@ Group: System/Libraries
 BuildRequires: cmake(ECM)
 BuildRequires: pam-devel
 BuildRequires: pkgconfig(libgcrypt)
+BuildRequires: socat
+Requires: socat
 
 %description
 PAM support for Kwallet.
@@ -24,7 +26,7 @@ To enable it add these lines to /etc/pam.d/kde:
 
 %prep
 %setup -q
-%cmake_kde5 -DKWALLET5=1 -DCMAKE_INSTALL_LIBDIR=/%{_lib}
+%cmake_kde5 -DKWALLET5=1 -DCMAKE_INSTALL_PREFIX:PATH="" -DCMAKE_INSTALL_LIBDIR=/%{_lib}
 
 %build
 %ninja -C build
@@ -33,4 +35,6 @@ To enable it add these lines to /etc/pam.d/kde:
 %ninja_install -C build
 
 %files
+%{_sysconfdir}/xdg/autostart/pam_kwallet_init.desktop
 /%{_lib}/security/pam_kwallet5.so
+%{_libdir}/libexec/pam_kwallet_init

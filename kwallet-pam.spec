@@ -26,7 +26,7 @@ To enable it add these lines to /etc/pam.d/kde:
 
 %prep
 %setup -q
-%cmake_kde5 -DKWALLET5=1 -DCMAKE_INSTALL_PREFIX:PATH="" -DCMAKE_INSTALL_LIBDIR=/%{_lib}
+%cmake_kde5 -DKWALLET5=1
 
 %build
 %ninja -C build

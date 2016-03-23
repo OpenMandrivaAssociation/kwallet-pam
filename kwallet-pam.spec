@@ -33,6 +33,8 @@ To enable it add these lines to /etc/pam.d/kde:
 
 %install
 %ninja_install -C build
+mkdir -p %{buildroot}/%{_lib}
+mv %{buildroot}%{_libdir}/security %{buildroot}/%{_lib}/
 
 %files
 %{_sysconfdir}/xdg/autostart/pam_kwallet_init.desktop

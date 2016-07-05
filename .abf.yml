@@ -1,7 +1,2 @@
 sources:
-  kwallet-pam-5.7.0.tar.xz: 8182f6867e124bbb8bafd56e94c5457f295d6139
-  plasma-workspace-wallpapers-5.7.0.tar.xz: 62224f27bce224895b1869e16a780b3bdc5042a8
-  powerdevil-5.7.0.tar.xz: 5bdd53792a0cf021f314b339fe6bcb0ab237ba9a
-  sddm-kcm-5.7.0.tar.xz: b4ab17eb7bf1b519d825a7c75fd4d1cbac0f6d98
-  systemsettings-5.7.0.tar.xz: f5074666eac661b3427969c2e9c8850998a89623
-  user-manager-5.7.0.tar.xz: e74e0d60f6695944448e83f3990a59ed544c00e3
+  kwallet-pam-5.7.0.tar.xz: 1c871ffc485dc508907e355393648c26787c3021

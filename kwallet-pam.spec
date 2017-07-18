@@ -13,6 +13,7 @@ BuildRequires: cmake(ECM)
 BuildRequires: pam-devel
 BuildRequires: pkgconfig(libgcrypt)
 BuildRequires: socat
+BuildRequires: qmake5
 Requires: socat
 
 %description
@@ -26,7 +27,7 @@ To enable it add these lines to /etc/pam.d/kde:
 
 %prep
 %setup -q
-%cmake_kde5 -DKWALLET5=1 -DCMAKE_INSTALL_LIBDIR:PATH="/%{_lib}"
+%cmake_kde5 -DKWALLET5=1 -DCMAKE_INSTALL_LIBDIR:PATH="/%{_lib}" -DQMAKE_EXECUTABLE=%{_bindir}/qmake-qt5
 
 %build
 %ninja -C build

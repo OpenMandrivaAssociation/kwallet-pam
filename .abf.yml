@@ -1,2 +1,4 @@
-sources:
+removed_sources:
   kwallet-pam-5.12.3.tar.xz: c6e7469e3bff0b75d6b0e860c28da455197cf1a5
+sources:
+  kwallet-pam-5.12.6.tar.xz: 7a887e3c0e7d47164c5c2a9bfd259b3072d755dc

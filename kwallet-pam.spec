@@ -3,7 +3,7 @@
 
 Name: kwallet-pam
 Version: 5.14.2
-Release: 1
+Release: 2
 Source0: http://download.kde.org/%{stable}/plasma/%{plasmaver}/%{name}-%{version}.tar.xz
 Summary: PAM support for Kwallet
 URL: http://kde.org/

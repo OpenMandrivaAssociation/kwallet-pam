@@ -1,0 +1,29 @@
+From 6d96260ef7a81c244b06c48d2ef076a798684bd1 Mon Sep 17 00:00:00 2001
+From: Luc Menut <lmenut@mageia.org>
+Date: Thu, 11 May 2017 21:37:12 +0200
+Subject: [PATCH] use unidirectional mode for socat v2
+
+---
+ pam_kwallet_init | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/pam_kwallet_init b/pam_kwallet_init
+index e1d7f1a..7b0128a 100644
+--- a/pam_kwallet_init
++++ b/pam_kwallet_init
+@@ -1,10 +1,10 @@
+ #!/bin/sh
+ 
+ if test -n "$PAM_KWALLET_LOGIN" ; then
+-    env | socat STDIN UNIX-CONNECT:$PAM_KWALLET_LOGIN
++    env | socat -u STDIN UNIX-CONNECT:$PAM_KWALLET_LOGIN
+ fi
+ 
+ if test -n "$PAM_KWALLET5_LOGIN" ; then
+-    env | socat STDIN UNIX-CONNECT:$PAM_KWALLET5_LOGIN
++    env | socat -u STDIN UNIX-CONNECT:$PAM_KWALLET5_LOGIN
+ fi
+ 
+-- 
+2.7.4
+

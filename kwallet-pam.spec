@@ -9,6 +9,7 @@ Summary: PAM support for Kwallet
 URL: http://kde.org/
 License: GPL
 Group: System/Libraries
+Patch0: pam_kwallet_init-use-unidirectional-mode-for-socat-v2.patch
 BuildRequires: cmake(ECM)
 BuildRequires: pam-devel
 BuildRequires: pkgconfig(libgcrypt)
@@ -26,7 +27,7 @@ To enable it add these lines to /etc/pam.d/kde:
 ---------------------
 
 %prep
-%setup -q
+%autosetup -p1
 %cmake_kde5 -DKWALLET5=1 -DCMAKE_INSTALL_LIBDIR:PATH="/%{_lib}" -DQMAKE_EXECUTABLE=%{_bindir}/qmake-qt5
 
 %build

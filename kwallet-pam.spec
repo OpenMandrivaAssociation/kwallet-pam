@@ -17,6 +17,7 @@ BuildRequires: pkgconfig(libgcrypt)
 BuildRequires: socat
 BuildRequires: qmake5
 Requires: socat
+Requires: kwallet
 
 %description
 PAM support for Kwallet.

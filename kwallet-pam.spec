@@ -11,6 +11,7 @@ License: GPL
 Group: System/Libraries
 Patch0: pam_kwallet_init-use-unidirectional-mode-for-socat-v2.patch
 BuildRequires: cmake(ECM)
+BuildRequires: cmake(Wallet)
 BuildRequires: pam-devel
 BuildRequires: pkgconfig(libgcrypt)
 BuildRequires: socat

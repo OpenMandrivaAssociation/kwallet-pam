@@ -2,7 +2,7 @@
 %define stable %([ "`echo %{version} |cut -d. -f3`" -ge 80 ] && echo -n un; echo -n stable)
 
 Name: kwallet-pam
-Version: 5.22.5
+Version: 5.22.90
 Release: 1
 Source0: http://download.kde.org/%{stable}/plasma/%{plasmaver}/%{name}-%{version}.tar.xz
 Summary: PAM support for Kwallet
@@ -44,3 +44,4 @@ mv %{buildroot}%{_libdir}/security %{buildroot}/%{_lib}/
 %{_sysconfdir}/xdg/autostart/pam_kwallet_init.desktop
 /%{_lib}/security/pam_kwallet5.so
 %{_libdir}/libexec/pam_kwallet_init
+%{_prefix}/lib/systemd/user/plasma-kwallet-pam.service

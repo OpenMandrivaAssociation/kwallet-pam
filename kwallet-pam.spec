@@ -3,7 +3,7 @@
 
 Name: kwallet-pam
 Version: 5.25.3
-Release: 1
+Release: 2
 Source0: http://download.kde.org/%{stable}/plasma/%{plasmaver}/%{name}-%{version}.tar.xz
 Summary: PAM support for Kwallet
 URL: http://kde.org/
@@ -30,18 +30,20 @@ To enable it add these lines to /etc/pam.d/kde:
 
 %prep
 %autosetup -p1
-%cmake_kde5 -DKWALLET5=1 -DCMAKE_INSTALL_LIBDIR:PATH="/%{_lib}" -DQMAKE_EXECUTABLE=%{_bindir}/qmake-qt5
+%cmake_kde5 -DKWALLET5=1 -DKDE_INSTALL_LIBDIR:PATH="%{_libdir}" -DQMAKE_EXECUTABLE=%{_bindir}/qmake-qt5
 
 %build
 %ninja -C build
 
 %install
 %ninja_install -C build
-mkdir -p %{buildroot}/%{_lib}
-mv %{buildroot}%{_libdir}/security %{buildroot}/%{_lib}/
+%post
+%systemd_user_post plasma-%{name}.service
 
+%postun
+%systemd_user_postun plasma-%{name}.service
 %files
 %{_sysconfdir}/xdg/autostart/pam_kwallet_init.desktop
-/%{_lib}/security/pam_kwallet5.so
+%{_libdir}/security/pam_kwallet5.so
 %{_libdir}/libexec/pam_kwallet_init
-%{_prefix}/lib/systemd/user/plasma-kwallet-pam.service
+%{_userunitdir}/plasma-kwallet-pam.service

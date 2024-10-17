@@ -6,7 +6,7 @@ Version: 5.27.11
 Release: 1
 Source0: http://download.kde.org/%{stable}/plasma/%{plasmaver}/%{name}-%{version}.tar.xz
 Summary: PAM support for Kwallet
-URL: http://kde.org/
+URL: https://kde.org/
 License: GPL
 Group: System/Libraries
 Patch0: pam_kwallet_init-use-unidirectional-mode-for-socat-v2.patch

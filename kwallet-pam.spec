@@ -4,7 +4,7 @@
 %define gitbranch Plasma/6.0
 %define gitbranchd %(echo %{gitbranch} |sed -e "s,/,-,g")
 
-Name: plasma6-kwallet-pam
+Name: kwallet-pam
 Version: 6.3.4
 Release: %{?git:0.%{git}.}1
 %if 0%{?git:1}
@@ -28,8 +28,13 @@ BuildRequires: pam-devel
 BuildRequires: pkgconfig(libgcrypt)
 BuildRequires: socat
 BuildRequires: gettext
+BuildSystem: cmake
+BuildOption: -DBUILD_QCH:BOOL=ON
+BuildOption: -DKDE_INSTALL_USE_QT_SYS_PATHS:BOOL=ON
 Requires: socat
 Requires: kf6-kwallet
+# Renamed after Plasma 5 removal, after 6.0 2024-04-27
+%rename plasma6-kwallet-pam
 
 %description
 PAM support for Kwallet.
@@ -39,20 +44,6 @@ To enable it add these lines to /etc/pam.d/kde:
 -auth            optional        pam_kwallet5.so
 -session         optional        pam_kwallet5.so
 ---------------------
-
-%prep
-%autosetup -p1 -n kwallet-pam-%{?git:%{gitbranchd}}%{!?git:%{version}}
-%cmake \
-	-DBUILD_QCH:BOOL=ON \
-	-DBUILD_WITH_QT6:BOOL=ON \
-	-DKDE_INSTALL_USE_QT_SYS_PATHS:BOOL=ON \
-	-G Ninja
-
-%build
-%ninja_build -C build
-
-%install
-%ninja_install -C build
 
 %files
 %{_sysconfdir}/xdg/autostart/pam_kwallet_init.desktop
